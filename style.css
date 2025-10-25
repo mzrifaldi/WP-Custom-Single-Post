@@ -1,0 +1,835 @@
+/*
+Theme Name: Blocksy Child
+Description: Child theme of Blocksy with custom single post template
+Template: blocksy
+Version: 1.0.0
+*/
+
+/* ==========================================================================
+   PUTRA FARMA YOGYAKARTA - SINGLE POST TEMPLATE STYLES
+   ========================================================================== */
+
+/* Container and Layout Styles */
+.pfg-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.pfg-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.pfg-main-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.pfg-single-post {
+  font-family: 'Montserrat', sans-serif;
+  color: #212529;
+  padding: 2.5rem;
+}
+
+/* Post Header Styles */
+.pfg-post-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.pfg-post-category {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #40b06e;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  background-color: rgba(64, 176, 110, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+.pfg-post-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a4a2e;
+  margin-bottom: 1rem;
+}
+
+.pfg-post-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.pfg-post-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pfg-post-meta-item i {
+  color: #40b06e;
+  width: 16px;
+  text-align: center;
+}
+
+/* Featured Image Styles */
+.pfg-post-featured-image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.pfg-post-featured-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(26, 74, 46, 0.1), rgba(64, 176, 110, 0.1));
+  pointer-events: none;
+}
+
+.pfg-post-featured-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.pfg-post-featured-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Table of Contents Styles */
+.pfg-post-toc {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.pfg-post-toc-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1a4a2e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pfg-post-toc-title i {
+  color: #40b06e;
+}
+
+.pfg-post-toc-list {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.pfg-post-toc-list li {
+  margin-bottom: 0.8rem;
+}
+
+.pfg-post-toc-list a {
+  color: #2d7b4d;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.pfg-post-toc-list a:hover {
+  color: #40b06e;
+  text-decoration: underline;
+  padding-left: 0.5rem;
+}
+
+/* Post Content Styles */
+.pfg-post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.pfg-post-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.pfg-post-content h2 {
+  font-size: 1.8rem;
+  color: #1a4a2e;
+  margin: 2.5rem 0 1.2rem;
+  font-weight: 700;
+  position: relative;
+  padding-left: 1rem;
+  scroll-margin-top: 100px; /* For smooth scroll offset */
+}
+
+.pfg-post-content h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #40b06e, #2d7b4d);
+  border-radius: 2px;
+}
+
+.pfg-post-content h3 {
+  font-size: 1.5rem;
+  color: #2d7b4d;
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+.pfg-post-content ul, .pfg-post-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pfg-post-content li {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.pfg-post-content blockquote {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-left: 4px solid #40b06e;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #495057;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.pfg-post-content blockquote::before {
+  content: "\f10d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: #40b06e;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.pfg-post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.pfg-post-content img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Post Tags Styles */
+.pfg-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.pfg-post-tag {
+  background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  color: #2d7b4d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pfg-post-tag:hover {
+  background: linear-gradient(135deg, #40b06e, #2d7b4d);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(64, 176, 110, 0.3);
+}
+
+/* =========================
+   AUTHOR BOX STYLES
+   ========================= */
+.pfg-post-author {
+  display: flex;
+  gap: 1.5rem;                       /* jarak foto & info */
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 3rem 0;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.pfg-post-author-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #40b06e;
+  box-shadow: 0 4px 12px rgba(64, 176, 110, 0.2);
+  flex-shrink: 0;
+}
+
+.pfg-post-author-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pfg-post-author-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pfg-post-author-info h4 {
+  margin: 0 0 0.8rem;
+  color: #1a4a2e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pfg-post-author-info p {
+  margin: 0 0 1.5rem;                 /* jarak ke tombol */
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.pfg-author-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;                          /* jarak antar tombol */
+  flex-wrap: wrap;
+}
+
+/* Tombol hijau */
+.pfg-author-posts-btn {
+  background-color: #40b06e;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pfg-author-posts-btn:hover {
+  background-color: #2d7b4d;
+  transform: translateY(-2px);
+}
+
+/* Post count */
+.pfg-author-post-count {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.55rem 1rem;              /* biar tinggi sejajar tombol hijau */
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+
+/* Post Share Styles */
+.pfg-post-share {
+  margin-bottom: 3rem;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.pfg-post-share-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #212529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pfg-post-share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pfg-post-share-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pfg-post-share-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.pfg-post-share-facebook {
+  background: linear-gradient(135deg, #3b5998, #2d4373);
+}
+
+.pfg-post-share-twitter {
+  background: linear-gradient(135deg, #1da1f2, #1a91da);
+}
+
+.pfg-post-share-linkedin {
+  background: linear-gradient(135deg, #0077b5, #005885);
+}
+
+.pfg-post-share-pinterest {
+  background: linear-gradient(135deg, #bd081c, #8b0615);
+}
+
+.pfg-post-share-whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+/* Related Posts Styles */
+.pfg-related-posts {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e9ecef;
+}
+
+.pfg-related-posts-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1a4a2e;
+  position: relative;
+  padding-bottom: 0.8rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pfg-related-posts-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #40b06e, #2d7b4d);
+  border-radius: 2px;
+}
+
+.pfg-related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.pfg-related-post-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid #e9ecef;
+}
+
+.pfg-related-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.pfg-related-post-card:hover .pfg-related-post-image img {
+  transform: scale(1.05);
+}
+
+.pfg-related-post-image {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pfg-related-post-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(26, 74, 46, 0.1), rgba(64, 176, 110, 0.1));
+}
+
+.pfg-related-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pfg-related-post-content {
+  padding: 1.5rem;
+}
+
+.pfg-related-post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+  color: #212529;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pfg-related-post-date {
+  font-size: 0.85rem;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pfg-related-post-date i {
+  color: #40b06e;
+}
+
+/* ==========================================================================
+   SIDEBAR STYLES
+   ========================================================================== */
+
+.pfg-sidebar {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.pfg-widget {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.pfg-widget:last-child {
+  border-bottom: none;
+}
+
+.pfg-widget-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a4a2e;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pfg-widget-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(135deg, #40b06e, #2d7b4d);
+}
+
+.pfg-widget-title i {
+  color: #40b06e;
+}
+
+/* Recent Posts Widget Styles */
+.pfg-recent-posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pfg-recent-posts-list li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.pfg-recent-posts-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.pfg-recent-post-link {
+  display: block;
+  text-decoration: none;
+  color: #212529;
+  transition: color 0.2s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.pfg-recent-post-link:hover {
+  color: #40b06e;
+}
+
+.pfg-recent-post-date {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Categories Widget Styles */
+.pfg-categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pfg-categories-list li {
+  margin-bottom: 0.5rem;
+}
+
+.pfg-categories-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #495057;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.pfg-categories-list a:hover {
+  background-color: #40b06e;
+  color: #fff;
+}
+
+.pfg-category-count {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.pfg-categories-list a:hover .pfg-category-count {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+/* Tags Cloud Styles */
+.pfg-tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pfg-tag-cloud-item {
+  padding: 0.3rem 0.6rem;
+  background-color: #f8f9fa;
+  color: #495057;
+  text-decoration: none;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.pfg-tag-cloud-item:hover {
+  background-color: #40b06e;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Search Widget Styles */
+.pfg-search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* jarak kecil antara input & button */
+}
+
+.pfg-search-input {
+  flex: 1;              /* biar input memenuhi ruang */
+  padding: 10px 12px;   /* padding normal */
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.pfg-search-button {
+  padding: 10px 16px;
+  border: none;
+  background: #40b06e;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pfg-search-button:hover {
+  background: #2d7b4d;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .pfg-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .pfg-sidebar {
+    position: static;
+    max-height: none;
+  }
+  
+  .pfg-related-posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pfg-container {
+    padding: 1rem;
+  }
+  
+  .pfg-single-post {
+    padding: 1.5rem;
+  }
+  
+  .pfg-post-title {
+    font-size: 2rem;
+  }
+  
+  .pfg-post-author {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+  
+  .pfg-post-author-image {
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+  
+  .pfg-post-share-buttons {
+    gap: 0.8rem;
+  }
+  
+  .pfg-post-share-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pfg-related-posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pfg-post-title {
+    font-size: 1.7rem;
+  }
+  
+  .pfg-post-meta {
+    gap: 1rem;
+  }
+  
+  .pfg-post-featured-image img {
+    height: 250px;
+  }
+  
+  .pfg-author-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+  }
+  
+  .pfg-author-posts-btn,
+  .pfg-author-post-count {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
